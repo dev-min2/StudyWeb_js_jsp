@@ -76,8 +76,6 @@ class Member {
     }
 }
 
-
-// const mem1 = new Member('전민교',27,172.5);
 // console.log(mem1);
 // mem1.setWeight(100);
 // console.log(mem1);  

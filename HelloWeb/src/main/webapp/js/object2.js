@@ -13,8 +13,6 @@ const students = [
     {sno:'003', sname:"최다예", engScore: 84, mathScore: 88}
 ];
 
-// const mem3 = new Member('전민교',27,171.5);
-
 // let html = mem3.makeHtml(students);
 // mem3.showPage(document.getElementById('show'), html);
 
