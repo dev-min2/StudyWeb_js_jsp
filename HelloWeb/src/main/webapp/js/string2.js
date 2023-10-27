@@ -48,7 +48,7 @@ function checkGender(ssn) {
     return gender;
 }
 
-console.log(checkGender('970802 1333333'));
+console.log(checkGender('9 70 802 13 333 33'));
 
 // 3. 파일명과 파일의 확장자
 let file = "C:/minkyo/king/kyungsuk/king/hyunjin/king/img.jpg";
