@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+	<record>
+		<id>1</id>
+		<first_name>Charley</first_name>
+		<email>cpesticcio0@ox.ac.uk</email>
+	</record>
+	<record>
+		<id>2</id>
+		<first_name>Edie</first_name>
+		<email>eplanque1@google.ru</email>
+	</record>
+	<record>
+		<id>3</id>
+		<first_name>Kara</first_name>
+		<email>kadolf2@amazonaws.com</email>
+	</record>
+	<record>
+		<id>4</id>
+		<first_name>Wade</first_name>
+		<email>wlatchmore3@irs.gov</email>
+	</record>
+	<record>
+		<id>5</id>
+		<first_name>Keene</first_name>
+		<email>kcosty4@ifeng.com</email>
+	</record>
+</dataset>
