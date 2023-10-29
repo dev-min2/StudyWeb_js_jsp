@@ -12,7 +12,8 @@ xhtp.send();
 xhtp.onload = loadJson;
 
 function loadJson() {
-	var json = JSON.parse(xhtp.responseText);
+	//ㅌㅌ
+	var json = JSON.parse(xhtp.responseText);	
 	console.log(json);
 	
 	document.getElementById('show').innerHTML += table.makeTable(['회원번호','비밀번호','이름','연락처'], json);
