@@ -14,6 +14,8 @@ xhtp.onload = loadJson;
 function loadJson() {
 	var json = JSON.parse(xhtp.responseText);
 	console.log(json);
+	
+	document.getElementById('show').innerHTML += table.makeTable(['회원번호','비밀번호','이름','연락처'], json);
 }
 
 function loadXML() {
@@ -41,6 +43,3 @@ function loadXML() {
     document.getElementById('show').innerHTML += result;
     document.getElementById('list').innerHTML += table.makeTr(newMember);
 }
-
-// hyunjin go home
-// minkyo go home

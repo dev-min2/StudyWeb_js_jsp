@@ -42,7 +42,6 @@
 		tr += "</tr>"
 		return tr;
 	}
-	//집가고싶다
  }
 
  export { table }
