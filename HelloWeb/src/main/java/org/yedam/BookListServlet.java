@@ -10,21 +10,24 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.yedam.service.MemberService;
-import org.yedam.service.MemberVO;
-import org.yedam.service.serviceimpl.MemberServiceImpl;
+import org.yedam.service.BookService;
+import org.yedam.service.BookVO;
+import org.yedam.service.serviceimpl.BookServiceImpl;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 /**
- * Servlet implementation class MemberListServ
+ * Servlet implementation class BookListServlet
  */
-@WebServlet("/MemberListServJson")
-public class MemberListServJson extends HttpServlet {
+@WebServlet("/BookListServlet")
+public class BookListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public MemberListServJson() {
+    public BookListServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -37,27 +40,14 @@ public class MemberListServJson extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/json; charset=UTF-8");
 		
-		MemberService service = new MemberServiceImpl();
-		List<MemberVO> memList = service.memberList();
+		BookService bookSvc = new BookServiceImpl();
+		List<BookVO> books = bookSvc.getBookList();
 		
+		Gson gson = new GsonBuilder().create();
+		String json = gson.toJson(books);
+
 		PrintWriter out = response.getWriter();
-		// 라이브러리 없이 JSON형태로.
-		String str = "[";
-		
-		int idx = 0;
-		for(MemberVO vo : memList) {
-			str += "{";
-			str += "\"mid\":\"" + vo.getMid() + "\",";
-			str += "\"pass\":\"" + vo.getPass() + "\",";
-			str += "\"name\":\"" + vo.getName() + "\",";
-			str += "\"phone\":\"" + vo.getPhone() + "\"";
-			str += "}";
-			if(++idx != memList.size()) {
-				str += ",";
-			}
-		}
-		str += "]";
-		out.print(str);	
+		out.print(json);	
 	}
 
 	/**
@@ -65,6 +55,7 @@ public class MemberListServJson extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		doGet(request, response);
 	}
 
 }

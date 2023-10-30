@@ -12,10 +12,18 @@ xhtp.send();
 xhtp.onload = loadJson;
 
 function loadJson() {
-	//ㅌㅌ
 	var json = JSON.parse(xhtp.responseText);	
 	console.log(json);
 	
+	let dataAry = [];
+	json.forEach(member => {
+		dataAry.push({
+					 mid: member.mid, pass: member.pass,
+					 name: member.name, phone:member.phone
+				})
+	});
+	
+	console.log(dataAry);
 	document.getElementById('show').innerHTML += table.makeTable(['회원번호','비밀번호','이름','연락처'], json);
 }
 
