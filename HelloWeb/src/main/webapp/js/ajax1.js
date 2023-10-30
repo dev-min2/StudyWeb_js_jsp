@@ -9,13 +9,21 @@ let newMember = {mid: "M009", pass: "9999", name: "민식이", phone:"010-9999-9
 xhtp.open('get','../MemberListServJson');
 xhtp.send(); 
 
-xhtp.onload = loadJson;
+xhtp.onload = loadXML;
 
 function loadJson() {
-	//ㅌㅌ
 	var json = JSON.parse(xhtp.responseText);	
 	console.log(json);
 	
+	let dataAry = [];
+	json.forEach(member => {
+		dataAry.push({
+					 mid: member.mid, pass: member.pass,
+					 name: member.name, phone:member.phone
+				})
+	});
+	
+	console.log(dataAry);
 	document.getElementById('show').innerHTML += table.makeTable(['회원번호','비밀번호','이름','연락처'], json);
 }
 
