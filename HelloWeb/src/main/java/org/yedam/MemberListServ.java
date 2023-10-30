@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.yedam.service.MemberService;
-import org.yedam.service.MemberServiceImpl;
 import org.yedam.service.MemberVO;
+import org.yedam.service.serviceimpl.MemberServiceImpl;
 
 /**
  * Servlet implementation class MemberListServ

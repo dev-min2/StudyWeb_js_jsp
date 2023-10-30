@@ -4,10 +4,61 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Insert title here</title>
-	<script type="module" src="ajax1.js"></script>
+	<script type="module" src="ajax1.js"></script>s
+	<script type="module" src="ajax2.js"></script>
 </head>
 
 <body>
+	<table border="1">
+		<tr>
+			<th>아이디</th><td><input id="mid"></td>
+		</tr>
+		<tr>
+			<th>비밀번호</th><td><input id="pass"></td>
+		</tr>
+		<tr>
+			<th>이름</th><td><input id="name"></td>
+		</tr>
+		<tr>
+			<th>연락처</th><td><input id="phone"></td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<button id="addBtn">등록</button>
+				<button id="modBtn">수정</button>
+			</td>
+		</tr>
+	</table>
+	
+	<script>
+		function showInfo(e, thisObj) {
+			// 이벤트가 콜백된 this를 알고싶을 때 밑의 2가지 방법.
+			console.log(e.target.parentElement);
+			console.log(thisObj);
+			
+			// 해당값을 가져오는 2가지 방법
+			console.log(e.target.parentElement.childNodes);
+			console.log(thisObj.children);
+			let tdList = e.target.parentElement.childNodes;
+			let mid = tdList[0].innerHTML;
+			let pass = tdList[1].innerHTML;
+			let name = tdList[2].innerHTML;
+			let phone = tdList[3].innerHTML; 	
+			
+			mid = thisObj.children[0].innerHTML;
+			pass = thisObj.children[1].innerHTML;
+			name = thisObj.children[2].innerHTML;
+			phone = thisObj.children[3].innerHTML;
+			
+			// input태그는 내부 value에 값을 넣어준다.
+			document.getElementById('mid').value = mid;
+			document.getElementById('pass').value = pass;
+			document.getElementById('name').value = name;
+			document.getElementById('phone').value = phone;
+		}
+	</script>
+	
+	<hr>
 	<div id="show"></div>
 </body>
 
