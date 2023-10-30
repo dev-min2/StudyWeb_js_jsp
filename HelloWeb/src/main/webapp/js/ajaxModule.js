@@ -2,6 +2,7 @@
  * 
  */
 
+
  const table = {
 	makeHead(titles = ['회원아이디','비밀번호','이름','연락처']) {
 		 let headTag = "<thead><tr>";
@@ -17,11 +18,7 @@
 		let bodyTag = "<tbody id='list'>";
 		
 		dataAry.forEach(item => {
-			bodyTag += "<tr>";
-			for(let prop in item) {
-				bodyTag += "<td>" + item[prop] + "</td>";
-			}
-			bodyTag += "</tr>";
+			bodyTag += this.makeTr(item);
 		});
 		
 		bodyTag += "</tbody>";
@@ -35,7 +32,7 @@
 		return tableTag;	
 	},
 	makeTr(data = {mid: "1", pass: "1", name: "1", phone:"1"}) {
-		let tr = "<tr>";
+		let tr = "<tr onclick='showInfo(event, this)'>"; // this는 tr자기자신을 넘김
 		for(let prop in data) {
 			tr += "<td>" + data[prop] + "</td>";
 		}
