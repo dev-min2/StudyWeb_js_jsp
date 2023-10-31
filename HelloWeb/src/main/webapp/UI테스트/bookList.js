@@ -20,6 +20,7 @@ function printBooks() {
 
 function makeTr(bookData = {}) {
     let trHTML = '<tr>';
+    
     trHTML += "<td>" +  bookData.bookCode + "</td>";
     trHTML += "<td>" + bookData.bookTitle + "</td>";
     trHTML += "<td>" + bookData.bookAuthor + "</td>";
