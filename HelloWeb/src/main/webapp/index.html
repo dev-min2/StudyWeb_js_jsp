@@ -17,7 +17,30 @@
 		<li>집간다</li>
 		<li>테스트</li>
 	</ul>
-	<p>깃 테스트</p>
+	<p class="first">깃 테스트</p>
+	<p id="second">테스트 p</>
+	
+	<script>
+	//	setTimeout(function()  {
+//			document.querySelectorAll('ul>li').forEach(obj => obj.remove());
+		//}, 5000)
+		let body = document.querySelector('body');
+		//body.children[3].children[0].innerHTML = '멜론';
+		//console.log(body.parentElement.innerHTML = "");
+		
+		let li6 = document.createElement('li');
+		li6.innerHTML = "포도";
+		
+		document.querySelector('ul').appendChild(li6);
+		
+		let p4 = document.createElement('p');
+		p4.setAttribute('class','fourth'); // class라는 속성에 접근해 값변경 or 없다면 속성추가.
+		p4.innerHTML = '집가고싶다...';
+		
+		//현재 p태그들중 2번째에 있는 p태그 뒤에다가 생성.
+		document.querySelector('p:nth-of-type(2)').after(p4);
+		
+	</script>
 </body>
 
 </html>

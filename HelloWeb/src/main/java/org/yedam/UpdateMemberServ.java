@@ -55,7 +55,7 @@ public class UpdateMemberServ extends HttpServlet {
 		MemberService svc = new MemberServiceImpl();
 		MemberVO vo = new MemberVO(mid,password,name,phone);
 
-		// 자바 객체 <-> json
+		// 자바 객체 <-> json89
 		Gson gson = new GsonBuilder().create();
 		gson.toJson(vo); 
 		//String json = gson.toJson(map);
@@ -69,7 +69,7 @@ public class UpdateMemberServ extends HttpServlet {
 			map.put("retCode", "NG");
 			map.put("vo", vo.getMid());
 		}
-		
+			
 		// Map타입도 변환이가능.
 		String json = gson.toJson(map);
 		out.print(json);
