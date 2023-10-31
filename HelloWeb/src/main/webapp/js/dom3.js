@@ -86,10 +86,8 @@ function mappingData(data = []) {
 			lng: obj.lng
 		}
 		acc.push(newObj);
-		
 		return acc;
 	},[])
-	
 	return retData2;
 }
 
