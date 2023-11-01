@@ -182,18 +182,24 @@ function calPage(data = [], page = 1, trCount) {
 	// 최대 몇개의 게시판이 나올건지?(y)
 	// (page-1) * y + 1;  -> start
 	// (page) * y; -> end
-	let paginationCount = 10;
+	let paginationCount = 5;
 	
 	// left 2개 
-	// rigth 2개 유노?경석
+	// rigth 2개
 	let startNo = (page - 1) * trCount;
 	let endNo = page * trCount;
 	
 	let totalCnt = data.length;
 	let lastPage = Math.ceil(totalCnt / trCount);
 	
-	let endPage = Math.ceil(page/paginationCount) * paginationCount;
-	let beginPage = endPage - (paginationCount - 1);
+	//let endPage = Math.ceil(page/paginationCount) * paginationCount;
+	//let beginPage = endPage - (paginationCount - 1);
+	
+	let sideSpace = Math.floor(paginationCount / 2);
+	
+	let beginPage = Math.max(page - sideSpace, 1);
+	let endPage = Math.min(page + sideSpace, Math.floor(totalCnt / paginationCount));
+	
 	if(endPage > lastPage) {
 		endPage = lastPage;
 	}
