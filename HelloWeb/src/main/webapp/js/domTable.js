@@ -3,6 +3,7 @@
  */
 
 export default {
+	hiddenFields: ['lat','lng'], // 화면에 안보여주는 용도.
 	makeHead: function(titles = []) {
 		let thead = document.createElement('thead');
 		let tr = document.createElement('tr');
@@ -27,7 +28,13 @@ export default {
 	},
 	makeTr: function(center = {}) {
 		let tr = document.createElement('tr');
+		tr.setAttribute('data-lat', center.lat);
+		tr.setAttribute('data-lng', center.lng);
+		
 		for(const prop in center) {
+			if(this.hiddenFields.indexOf(prop) >= 0)
+				continue;
+			
 			const td = document.createElement('td');
 			td.innerHTML = center[prop];
 			
