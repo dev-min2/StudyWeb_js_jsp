@@ -99,10 +99,11 @@ function mappingData(data = [], page = 1) {
 }
 
 function makePagination(data = [], page = 1) {
-	let trCount = 5;
-	let paginationCount = 10;
 	
-	let calInfo = calPage(data, page, trCount);
+	let trCount = 5;
+	let paginationCount = 5;
+	
+	let calInfo = calPage(data, page, trCount, paginationCount);
 	let startNo = calInfo.startNo;
 	let endNo = calInfo.endNo;
 	let totalCnt = calInfo.totalCnt;
@@ -111,6 +112,8 @@ function makePagination(data = [], page = 1) {
 	let beginPage = calInfo.beginPage;
 	let prev = calInfo.prev;
 	let next = calInfo.next;
+	if(page < 1 || page > lastPage)
+		return;
 	
 	document.querySelector('.pagination').innerHTML = '';
 	
@@ -178,11 +181,10 @@ function makePagination(data = [], page = 1) {
 	return {startNo, endNo};
 }
 
-function calPage(data = [], page = 1, trCount) {
+function calPage(data = [], page = 1, trCount, paginationCount) {
 	// 최대 몇개의 게시판이 나올건지?(y)
 	// (page-1) * y + 1;  -> start
 	// (page) * y; -> end
-	let paginationCount = 5;
 	
 	// left 2개 
 	// rigth 2개
@@ -198,7 +200,7 @@ function calPage(data = [], page = 1, trCount) {
 	let sideSpace = Math.floor(paginationCount / 2);
 	
 	let beginPage = Math.max(page - sideSpace, 1);
-	let endPage = Math.min(page + sideSpace, Math.floor(totalCnt / paginationCount));
+	let endPage = Math.min(page + sideSpace, Math.ceil(totalCnt / paginationCount));
 	
 	if(endPage > lastPage) {
 		endPage = lastPage;
